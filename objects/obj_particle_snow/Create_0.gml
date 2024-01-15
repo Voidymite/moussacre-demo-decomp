@@ -1,0 +1,9 @@
+image_speed = 0
+hspd = irandom_range(-3, -10)
+vspd = irandom_range(10, 30)
+rspd = irandom_range(6, 32)
+size = irandom_range(0, 2)
+image_index = size
+life = 300
+image_xscale = 0.3
+image_yscale = 0.3
