@@ -9,8 +9,8 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "Effects",
-    "path": "folders/Objects/Effects.yy",
+    "name": "Afterimage",
+    "path": "folders/Objects/Afterimage.yy",
   },
   "parentObjectId": null,
   "persistent": false,

@@ -6,4 +6,4 @@ size = 0.025
 vib = 0
 shake = 13
 struck = 0
-audio_play_sound(snd_object_collapse_building_3, 1, false)
+audio_play_sound(snd_object_collapse_building_3, 1, 0)

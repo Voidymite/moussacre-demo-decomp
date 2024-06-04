@@ -1,17 +1,17 @@
 if (time == 240)
-    audio_play_sound(snd_nickdonnoli, 1, false)
-if (!gamepad_is_connected(0))
-    var action1 = (keyboard_check_pressed(ord("L")) || keyboard_check_pressed(ord("Z")))
-else
-    action1 = gamepad_button_check_pressed(0, gp_face1)
+    audio_play_sound(snd_song_nickdonnoli, 1, 0)
+var action1 = (keyboard_check_pressed(ord("Z")) ? true : (keyboard_check_pressed(vk_return) ? true : gamepad_button_check_pressed(0, gp_face1)))
 time -= 1
+if (time == 415)
+{
+}
 if (time <= 240)
 {
     if (time == 240)
         image_speed = 1
     if (image_index == 76)
         image_speed = 0
-    if (image_xscale < 3.1396200000000003)
+    if (image_xscale < 3.13962)
     {
         image_xscale += (grow * 2.343)
         image_yscale += (grow * 2.343)
@@ -26,9 +26,9 @@ if (time <= 240)
     }
     if action1
     {
-        audio_stop_sound(snd_nickdonnoli)
-        image_xscale = 3.1396200000000003
-        image_yscale = 3.1396200000000003
+        audio_stop_sound(snd_song_nickdonnoli)
+        image_xscale = 3.13962
+        image_yscale = 3.13962
         skip = 1
         image_speed = 0
         image_index = 71

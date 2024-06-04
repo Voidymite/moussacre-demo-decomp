@@ -8,3 +8,5 @@ image_speed = 0
 sizeup = random_range(1, 6)
 image_xscale = sizeup
 image_yscale = sizeup
+if (room == rm_wow)
+    spd *= 2

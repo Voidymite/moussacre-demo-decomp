@@ -3,8 +3,8 @@ if (time == 100)
 time -= 1
 if (time >= 0)
 {
-    x += (((og_x - 576) - x) * 0.05)
-    y += (((og_y - 200) - y) * 0.05)
+    x += ((og_x - 576 - x) * 0.05)
+    y += ((og_y - 200 - y) * 0.05)
     if (image_xscale < 1)
     {
         image_xscale += 0.04

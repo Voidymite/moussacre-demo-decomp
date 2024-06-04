@@ -1,2 +1,1 @@
-draw_set_alpha(1)
-draw_self()
+draw_sprite(sprite_index, image_index, x, drawn)

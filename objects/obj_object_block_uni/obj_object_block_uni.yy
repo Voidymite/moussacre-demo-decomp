@@ -9,8 +9,8 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "Blocks",
-    "path": "folders/Objects/Level Structure/Blocks.yy",
+    "name": "Misc",
+    "path": "folders/Objects/Gameplay/Level Structure/Misc.yy",
   },
   "parentObjectId": null,
   "persistent": false,
@@ -29,8 +29,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "spr_blocks_city",
-    "path": "sprites/spr_blocks_city/spr_blocks_city.yy",
+    "name": "spr_block_city",
+    "path": "sprites/spr_block_city/spr_block_city.yy",
   },
   "spriteMaskId": null,
   "visible": true,

@@ -9,8 +9,8 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "Collectibles",
-    "path": "folders/Objects/Level Structure/Collectibles.yy",
+    "name": "Points",
+    "path": "folders/Objects/Gameplay/Level Structure/Points.yy",
   },
   "parentObjectId": null,
   "persistent": false,

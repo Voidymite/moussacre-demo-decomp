@@ -6,4 +6,4 @@ image_xscale = 1
 image_yscale = 1
 x = 0
 dust = 6
-sound = snd_mick_ui_wow_time
+sound = 1

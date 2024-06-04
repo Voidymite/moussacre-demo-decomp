@@ -5,7 +5,7 @@ if (phase == 0)
     size -= 0.5
     if (size == 0.5)
     {
-        audio_play_sound(snd_item_checkpoint_1, 1, false)
+        audio_play_sound(snd_item_checkpoint_1, 1, 0)
         phase = 1
         if global.rumble
             gamepad_set_vibration(0, 1, 1)
@@ -14,7 +14,7 @@ if (phase == 0)
 }
 if (shake_time > 0)
     shake_time -= 1
-if (shake_time == 0)
+if (shake_time == 1)
     gamepad_set_vibration(0, 0, 0)
 if (phase == 1)
 {

@@ -1,4 +1,4 @@
-depth = 1
+depth = 1.5
 emit = audio_emitter_create()
 audio_emitter_position(emit, x, y, 0)
 audio_falloff_set_model(5)

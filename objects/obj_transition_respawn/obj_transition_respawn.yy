@@ -10,8 +10,8 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "Transition",
-    "path": "folders/Objects/GUI/Transition.yy",
+    "name": "Death Transition",
+    "path": "folders/Objects/Unsorted/Death Transition.yy",
   },
   "parentObjectId": null,
   "persistent": true,

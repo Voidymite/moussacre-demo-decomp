@@ -9,8 +9,8 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "Effects",
-    "path": "folders/Objects/Effects.yy",
+    "name": "Particles",
+    "path": "folders/Objects/Particles.yy",
   },
   "parentObjectId": null,
   "persistent": false,
@@ -29,8 +29,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "spr_blocks_city_broken",
-    "path": "sprites/spr_blocks_city_broken/spr_blocks_city_broken.yy",
+    "name": "spr_block_city_broken",
+    "path": "sprites/spr_block_city_broken/spr_block_city_broken.yy",
   },
   "spriteMaskId": null,
   "visible": true,

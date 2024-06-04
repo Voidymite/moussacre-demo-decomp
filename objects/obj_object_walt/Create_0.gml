@@ -9,7 +9,7 @@ fall = 1
 dead = 0
 smoke = 3
 depth = 480
-instance_create_depth(0, 0, 0, obj_particle_snowing)
-audio_play_sound(snd_object_walt_rocket_1, 1, true)
+instance_create_depth(0, 0, 0, obj_weather)
+audio_play_sound(snd_object_walt_rocket_1, 1, 1)
 global.song_playing = 0
 global.song = 2

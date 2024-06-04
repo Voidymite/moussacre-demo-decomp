@@ -11,8 +11,8 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "GUI",
-    "path": "folders/Objects/Mousetrap Stuff/GUI.yy",
+    "name": "HUD",
+    "path": "folders/Objects/Gameplay/HUD.yy",
   },
   "parentObjectId": null,
   "persistent": false,

@@ -6,9 +6,9 @@ color = irandom_range(0, 8)
 depth = -2
 key = scr_tempdatagetkey()
 temp_data = ds_map_find_value(obj_global.temp_data, key)
-if ((!is_undefined(temp_data)) && temp_data == 1)
+if ((!is_undefined(temp_data)) && temp_data == true)
     instance_destroy()
-y = (base_pos + pos)
+drawn = base_pos + pos
 if (color == 1)
     sprite_index = spr_item_gem_orange
 if (color == 2)

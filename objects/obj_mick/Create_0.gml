@@ -1,3 +1,9 @@
+acc = 2
+hspd_cap = 48
+walk_spd = 24
+grav = 2
+vspd_cap = 48
+jump_height = 48
 global.hspd = 8
 global.dodging = 0
 running = 0
@@ -15,6 +21,7 @@ land_time = 0
 cling = 0
 jump_buffer = 0
 c_time = 0
+bounce = 0
 hstate = 0
 dir = 1
 vstate = 0
@@ -23,6 +30,7 @@ crouching = 0
 hurt_timer = 0
 flash = 0
 hurt_anim = 0
+pain = 0
 stun_timer = 0
 astate = 0
 spin_time = 0
@@ -35,6 +43,9 @@ walk_time = 20
 run_time = 2
 run_time_2 = 2
 wall_time = 2
+hook_time = 1
+draw_ready = 0
 depth = -1
 audio_group_set_gain(snd_item_gem_9, 0.9, 0)
 exist_time = 1
+instance_create_depth(0, 0, 0, obj_camera)

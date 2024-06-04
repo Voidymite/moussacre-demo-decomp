@@ -9,8 +9,8 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "Walt",
-    "path": "folders/Objects/Demo Events/Walt.yy",
+    "name": "Hitboxes",
+    "path": "folders/Objects/Hitboxes.yy",
   },
   "parentObjectId": null,
   "persistent": false,

@@ -1,15 +1,5 @@
-function scr_screenshake() //scr_screenshake
+function scr_screenshake(_shake_time)
 {
-    with (obj_camera)
-        shake_time = 10
-}
-function scr_screenshake_giant() //scr_screenshake_giant
-{
-    with (obj_camera)
-        shake_time = 40
-}
-function scr_screenshake_light() //scr_screenshake_light
-{
-    with (obj_camera)
-        shake_time = 2
-}
+	with obj_camera
+		shake_time = _shake_time;
+};

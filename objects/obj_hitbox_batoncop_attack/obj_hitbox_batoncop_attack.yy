@@ -9,8 +9,8 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "Pig Cop",
-    "path": "folders/Objects/Level Structure/Enemies/Pig Cop.yy",
+    "name": "Hitboxes",
+    "path": "folders/Objects/Hitboxes.yy",
   },
   "parentObjectId": null,
   "persistent": false,

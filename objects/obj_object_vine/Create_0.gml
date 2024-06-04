@@ -1,0 +1,9 @@
+frame = 0
+active = 0
+spd = 0
+time = 60
+x_pos = x
+y_pos = y
+shine1 = 0
+shine2 = 1
+depth = layer_get_depth(layer_get_id("Tiles")) + 1

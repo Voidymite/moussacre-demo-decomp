@@ -6,10 +6,10 @@ time = 140
 fall = 1
 vib_dir = 1
 vib = 0
-sound = snd_mick_ui_wow_time
+sound = 1
 pop = 1
 if (global.walt == 1)
 {
     instance_destroy()
-    instance_create_depth(0, 0, 0, obj_particle_snowing)
+    instance_create_depth(0, 0, 0, obj_weather)
 }

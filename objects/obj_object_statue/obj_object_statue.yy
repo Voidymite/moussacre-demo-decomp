@@ -10,8 +10,8 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "Walt",
-    "path": "folders/Objects/Demo Events/Walt.yy",
+    "name": "Misc",
+    "path": "folders/Objects/Gameplay/Level Structure/Misc.yy",
   },
   "parentObjectId": null,
   "persistent": false,

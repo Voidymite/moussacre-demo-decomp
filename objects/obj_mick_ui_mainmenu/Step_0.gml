@@ -1,16 +1,16 @@
 if (!gamepad_is_connected(0))
 {
     var pause = keyboard_check_pressed(vk_escape)
-    var up_tap = (keyboard_check_pressed(ord("W")) || keyboard_check_pressed(vk_up))
-    var down_tap = (keyboard_check_pressed(ord("S")) || keyboard_check_pressed(vk_down))
-    var action1 = (keyboard_check_pressed(ord("L")) || keyboard_check_pressed(ord("Z")))
-    var action2 = (keyboard_check_pressed(ord("º")) || keyboard_check_pressed(ord("X")))
+    var up_tap = (keyboard_check_pressed(ord("W")) ? true : keyboard_check_pressed(vk_up))
+    var down_tap = (keyboard_check_pressed(ord("S")) ? true : keyboard_check_pressed(vk_down))
+    var action1 = (keyboard_check_pressed(ord("L")) ? true : keyboard_check_pressed(ord("Z")))
+    var action2 = (keyboard_check_pressed(ord("º")) ? true : keyboard_check_pressed(ord("X")))
 }
 else
 {
     pause = gamepad_button_check_pressed(0, gp_start)
-    up_tap = (gamepad_button_check_pressed(0, gp_padu) || gamepad_axis_value(0, gp_axislv) < -0.3)
-    down_tap = (gamepad_button_check_pressed(0, gp_padd) || gamepad_axis_value(0, gp_axislv) > 0.3)
+    up_tap = (gamepad_button_check_pressed(0, gp_padu) ? true : gamepad_axis_value(0, gp_axislv) < -0.3)
+    down_tap = (gamepad_button_check_pressed(0, gp_padd) ? true : gamepad_axis_value(0, gp_axislv) > 0.3)
     action1 = gamepad_button_check_pressed(0, gp_face1)
     action2 = gamepad_button_check_pressed(0, gp_face2)
 }
@@ -20,9 +20,9 @@ if action2
 {
     if (tab > 0)
     {
-        audio_play_sound(snd_menu_deselect, 1, false)
+        audio_play_sound(snd_menu_deselect, 1, 0)
         ini_open("TheWayILikeIt")
-        script_execute(scr_save_settings)
+        scr_save_settings()
         ini_close()
     }
     if (tab > 0)
@@ -32,7 +32,7 @@ if action2
         cooldown = 1
         tab = 0
     }
-    if (tab == 2 || tab == 3)
+    if (tab == 2 ? true : tab == 3)
     {
         cooldown = 1
         tab = 1
@@ -72,13 +72,13 @@ if ((!tapped) && (!instance_exists(obj_transition)))
 {
     if up_tap
     {
-        audio_play_sound(snd_menu_choose, 1, false)
+        audio_play_sound(snd_menu_choose, 1, 0)
         row -= 1
         tapped = 1
     }
     if down_tap
     {
-        audio_play_sound(snd_menu_choose, 1, false)
+        audio_play_sound(snd_menu_choose, 1, 0)
         row += 1
         tapped = 1
     }
@@ -98,13 +98,13 @@ if (tab == 0)
     {
         with (obj_mick_ui_pause_select)
         {
-            x = ((800 - (((string_length("PLAY") / 2) + 2.25) * 140)) + 100)
+            x = 800 - (string_length("PLAY") / 2 + 2.25) * 140 + 100
             y = 700
         }
         if (action1 && (!cooldown) && (!instance_exists(obj_transition)))
         {
-            script_execute(scr_restart)
-            audio_play_sound(snd_menu_select, 1, false)
+            scr_restart()
+            audio_play_sound(snd_menu_select, 1, 0)
             with (obj_mick_ui_pause_select_mick)
             {
                 sprite_index = spr_mick_ui_select_active
@@ -120,12 +120,12 @@ if (tab == 0)
     {
         with (obj_mick_ui_pause_select)
         {
-            x = ((800 - (((string_length("SETTINGS") / 2) + 2.25) * 140)) + 100)
+            x = 800 - (string_length("SETTINGS") / 2 + 2.25) * 140 + 100
             y = 1000
         }
         if (action1 && (!cooldown) && (!instance_exists(obj_transition)))
         {
-            audio_play_sound(snd_menu_select, 1, false)
+            audio_play_sound(snd_menu_select, 1, 0)
             with (obj_mick_ui_pause_select_mick)
             {
                 sprite_index = spr_mick_ui_select_active
@@ -140,12 +140,12 @@ if (tab == 0)
     {
         with (obj_mick_ui_pause_select)
         {
-            x = ((800 - (((string_length("QUIT") / 2) + 2.25) * 140)) + 100)
+            x = 800 - (string_length("QUIT") / 2 + 2.25) * 140 + 100
             y = 1300
         }
         if (action1 && (!cooldown) && (!instance_exists(obj_transition)))
         {
-            audio_play_sound(snd_menu_select, 1, false)
+            audio_play_sound(snd_menu_select, 1, 0)
             with (obj_mick_ui_pause_select_mick)
             {
                 sprite_index = spr_mick_ui_select_active
@@ -165,7 +165,7 @@ if (tab == 0)
         }
         if (action1 && (!cooldown) && (!instance_exists(obj_transition)))
         {
-            audio_play_sound(snd_menu_select, 1, false)
+            audio_play_sound(snd_menu_select, 1, 0)
             with (obj_mick_ui_pause_select_mick)
             {
                 sprite_index = spr_mick_ui_select_active
@@ -192,12 +192,12 @@ if (tab == 1)
     {
         with (obj_mick_ui_pause_select)
         {
-            x = (1600 - (((string_length("CONTROLS") / 2) + 2.25) * 140))
+            x = 1600 - (string_length("CONTROLS") / 2 + 2.25) * 140
             y = 300
         }
         if (action1 && (!cooldown))
         {
-            audio_play_sound(snd_menu_select, 1, false)
+            audio_play_sound(snd_menu_select, 1, 0)
             with (obj_mick_ui_pause_select_mick)
             {
                 sprite_index = spr_mick_ui_select_active
@@ -216,14 +216,14 @@ if (tab == 1)
         with (obj_mick_ui_pause_select)
         {
             if global.rumble
-                x = (1600 - (((string_length("RUMBLE ON") / 2) + 2.25) * 140))
+                x = 1600 - ((string_length("RUMBLE ON")) / 2 + 2.25) * 140
             else
-                x = (1600 - (((string_length("RUMBLE OFF") / 2) + 2.25) * 140))
+                x = 1600 - ((string_length("RUMBLE OFF")) / 2 + 2.25) * 140
             y = 540
         }
         if (action1 && (!cooldown))
         {
-            audio_play_sound(snd_menu_select, 1, false)
+            audio_play_sound(snd_menu_select, 1, 0)
             with (obj_mick_ui_pause_select_mick)
             {
                 sprite_index = spr_mick_ui_select_active
@@ -242,12 +242,12 @@ if (tab == 1)
     {
         with (obj_mick_ui_pause_select)
         {
-            x = (1600 - (((string_length("AUDIO") / 2) + 2.25) * 140))
+            x = 1600 - (string_length("AUDIO") / 2 + 2.25) * 140
             y = 780
         }
         if (action1 && (!cooldown))
         {
-            audio_play_sound(snd_menu_select, 1, false)
+            audio_play_sound(snd_menu_select, 1, 0)
             with (obj_mick_ui_pause_select_mick)
             {
                 sprite_index = spr_mick_ui_select_active
@@ -263,14 +263,14 @@ if (tab == 1)
         with (obj_mick_ui_pause_select)
         {
             if (!window_get_fullscreen())
-                x = (1600 - (((string_length("WINDOWED") / 2) + 2.25) * 140))
+                x = 1600 - (string_length("WINDOWED") / 2 + 2.25) * 140
             else
-                x = (1600 - (((string_length("FULLSCREEN") / 2) + 2.25) * 140))
+                x = 1600 - (string_length("FULLSCREEN") / 2 + 2.25) * 140
             y = 1020
         }
         if (action1 && (!cooldown))
         {
-            audio_play_sound(snd_menu_select, 1, false)
+            audio_play_sound(snd_menu_select, 1, 0)
             with (obj_mick_ui_pause_select_mick)
             {
                 sprite_index = spr_mick_ui_select_active
@@ -287,14 +287,14 @@ if (tab == 1)
         with (obj_mick_ui_pause_select)
         {
             if global.particles
-                x = (1600 - (((string_length("PARTICLES HIGH") / 2) + 2.25) * 140))
+                x = 1600 - ((string_length("PARTICLES HIGH")) / 2 + 2.25) * 140
             else
-                x = (1600 - (((string_length("PARTICLES LOW") / 2) + 2.25) * 140))
+                x = 1600 - ((string_length("PARTICLES LOW")) / 2 + 2.25) * 140
             y = 1260
         }
         if (action1 && (!cooldown))
         {
-            audio_play_sound(snd_menu_select, 1, false)
+            audio_play_sound(snd_menu_select, 1, 0)
             with (obj_mick_ui_pause_select_mick)
             {
                 sprite_index = spr_mick_ui_select_active
@@ -310,15 +310,15 @@ if (tab == 1)
     {
         with (obj_mick_ui_pause_select)
         {
-            x = (1600 - (((string_length("GO BACK") / 2) + 2.25) * 140))
+            x = 1600 - ((string_length("GO BACK")) / 2 + 2.25) * 140
             y = 1500
         }
         if (action1 && (!cooldown))
         {
             ini_open("TheWayILikeIt")
-            script_execute(scr_save_settings)
+            scr_save_settings()
             ini_close()
-            audio_play_sound(snd_menu_select, 1, false)
+            audio_play_sound(snd_menu_select, 1, 0)
             with (obj_mick_ui_pause_select_mick)
             {
                 sprite_index = spr_mick_ui_select_active
@@ -337,12 +337,12 @@ if (tab == 3)
     {
         with (obj_mick_ui_pause_select)
         {
-            x = (1600 - (((string_length("INCREASE") / 2) + 2.25) * 140))
+            x = 1600 - (string_length("INCREASE") / 2 + 2.25) * 140
             y = 750
         }
         if (action1 && (!cooldown))
         {
-            audio_play_sound(snd_menu_select, 1, false)
+            audio_play_sound(snd_menu_select, 1, 0)
             with (obj_mick_ui_pause_select_mick)
             {
                 sprite_index = spr_mick_ui_select_active
@@ -358,12 +358,12 @@ if (tab == 3)
     {
         with (obj_mick_ui_pause_select)
         {
-            x = (1600 - (((string_length("DECREASE") / 2) + 2.25) * 140))
+            x = 1600 - (string_length("DECREASE") / 2 + 2.25) * 140
             y = 1050
         }
         if (action1 && (!cooldown))
         {
-            audio_play_sound(snd_menu_select, 1, false)
+            audio_play_sound(snd_menu_select, 1, 0)
             with (obj_mick_ui_pause_select_mick)
             {
                 sprite_index = spr_mick_ui_select_active
@@ -379,12 +379,12 @@ if (tab == 3)
     {
         with (obj_mick_ui_pause_select)
         {
-            x = (1600 - (((string_length("GO BACK") / 2) + 2.25) * 140))
+            x = 1600 - ((string_length("GO BACK")) / 2 + 2.25) * 140
             y = 1350
         }
         if (action1 && (!cooldown))
         {
-            audio_play_sound(snd_menu_select, 1, false)
+            audio_play_sound(snd_menu_select, 1, 0)
             with (obj_mick_ui_pause_select_mick)
             {
                 sprite_index = spr_mick_ui_select_active

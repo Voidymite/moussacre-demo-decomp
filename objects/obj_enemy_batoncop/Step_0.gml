@@ -40,87 +40,75 @@ if (place_meeting(x, y, obj_mick) && (!(place_meeting(x, y, obj_hitbox_spin))) &
         }
     }
 }
-if (place_meeting(x, y, obj_hitbox_walt_attack_1) || place_meeting(x, y, obj_hitbox_walt_attack_2))
+if (place_meeting(x, y, obj_hitbox_spin) ? true : (place_meeting(x, y, obj_hitbox_doublejump) ? true : (place_meeting(x, y, obj_hitbox_groundpound) ? true : (place_meeting(x, y, obj_hitbox_shoot) ? true : (place_meeting(x, y, obj_hitbox_hook_3) ? true : place_meeting(x, y, obj_hitbox_bomb_2))))))
+    ds_map_replace(obj_global.temp_data, key, true)
+if (place_meeting(x, y, obj_hitbox_walt_attack_1) ? true : place_meeting(x, y, obj_hitbox_walt_attack_2))
 {
     if (!(place_meeting(x, y, obj_wall_shield)))
     {
-        instance_create_depth(x, y, -10, obj_particle_poof)
-        instance_create_depth(x, y, -10, obj_particle_batoncop_dead_5)
-        audio_play_sound(snd_object_walt_ice_3, 1, false)
+        instance_create_depth(x, y, -10, obj_particle_burst)
+        instance_create_depth(x, y, -10, obj_particle_enemy_dead_5)
+        audio_play_sound(snd_object_walt_ice_3, 1, 0)
         no_splat = 1
-        repeat (35)
-		{
-			instance_create_depth((x + irandom_range(-100, 100)), (y + irandom_range(-100, 100)), -9, obj_particle_paint_color)
-		}
-        if global.particles
+        repeat (36)
+            instance_create_depth((x + (irandom_range(-100, 100))), (y + (irandom_range(-100, 100))), -9, obj_particle_paint_color)
+        repeat (108)
         {
-            repeat (100)
-			{
-				instance_create_depth((x + irandom_range(-100, 100)), (y + irandom_range(-100, 100)), -9, obj_particle_paint_color)
-			}
+            if global.particles
+                instance_create_depth((x + (irandom_range(-100, 100))), (y + (irandom_range(-100, 100))), -9, obj_particle_paint_color)
         }
-        script_execute(scr_screenshake)
+        scr_screenshake(10);
         instance_destroy()
-        ds_map_replace(obj_global.temp_data, key, 1)
     }
 }
-if (place_meeting(x, y, obj_hitbox_spin) || place_meeting(x, y, obj_hitbox_doublejump) || place_meeting(x, y, obj_hitbox_groundpound) || place_meeting(x, y, obj_object_waterspout) || place_meeting(x, y, obj_object_collapse))
+if (place_meeting(x, y, obj_hitbox_spin) ? true : (place_meeting(x, y, obj_hitbox_doublejump) ? true : (place_meeting(x, y, obj_hitbox_groundpound) ? true : (place_meeting(x, y, obj_object_waterspout) ? true : (place_meeting(x, y, obj_object_collapse) ? true : (place_meeting(x, y, obj_hitbox_shoot) ? true : (place_meeting(x, y, obj_hitbox_hook_3) ? true : place_meeting(x, y, obj_hitbox_bomb_2))))))))
 {
     if place_meeting(x, y, obj_hitbox_spin)
     {
-        instance_create_depth(round(((obj_hitbox_spin.x + x) / 2)), round(((obj_hitbox_spin.y + y) / 2)), -10, obj_particle_slash_horizontal)
-        instance_create_depth(x, y, -10, obj_particle_batoncop_dead_1)
-        instance_create_depth(x, y, -10, obj_particle_batoncop_dead_2)
+        instance_create_depth(round((obj_hitbox_spin.x + x) / 2), round((obj_hitbox_spin.y + y) / 2), -10, obj_particle_slash_horizontal)
+        instance_create_depth(x, y, -10, obj_particle_enemy_dead_1)
+        instance_create_depth(x, y, -10, obj_particle_enemy_dead_2)
         if drop
         {
-			repeat (5)
-			{
-				instance_create_depth(x, y, -2, obj_item_gem_follow)
+            repeat (5)
                 instance_create_depth(x, y, -2, obj_item_gem_follow)
-                instance_create_depth(x, y, -2, obj_item_gem_follow)
-                instance_create_depth(x, y, -2, obj_item_gem_follow)
-                instance_create_depth(x, y, -2, obj_item_gem_follow)
-			}
         }
+        if (global.sp < global.sp_max)
+            global.sp += 1
     }
     if place_meeting(x, y, obj_hitbox_doublejump)
     {
-        instance_create_depth(round(((obj_hitbox_doublejump.x + x) / 2)), round(((obj_hitbox_doublejump.y + y) / 2)), -10, obj_particle_slash_vertical)
-        instance_create_depth(x, y, -10, obj_particle_batoncop_dead_3)
-        instance_create_depth(x, y, -10, obj_particle_batoncop_dead_4)
+        instance_create_depth(round((obj_hitbox_doublejump.x + x) / 2), round((obj_hitbox_doublejump.y + y) / 2), -10, obj_particle_slash_vertical)
+        instance_create_depth(x, y, -10, obj_particle_enemy_dead_3)
+        instance_create_depth(x, y, -10, obj_particle_enemy_dead_4)
         if drop
         {
-			repeat (5)
-			{
-				instance_create_depth(x, y, -2, obj_item_gem_follow)
+            repeat (5)
                 instance_create_depth(x, y, -2, obj_item_gem_follow)
-                instance_create_depth(x, y, -2, obj_item_gem_follow)
-                instance_create_depth(x, y, -2, obj_item_gem_follow)
-                instance_create_depth(x, y, -2, obj_item_gem_follow)
-			}
         }
+        if (global.sp < global.sp_max)
+            global.sp += 1
         with (obj_mick)
         {
             astate = 4
             djump = 0
             y -= 2
             vstate = 1
-            vspd = -48
+            vspd = (-jump_height)
         }
     }
     if place_meeting(x, y, obj_hitbox_groundpound)
     {
-        instance_create_depth(round(((obj_hitbox_groundpound.x + x) / 2)), round(((obj_hitbox_groundpound.y + y) / 2)), -10, obj_particle_slash_vertical)
-        instance_create_depth(x, y, -10, obj_particle_batoncop_dead_3)
-        instance_create_depth(x, y, -10, obj_particle_batoncop_dead_4)
+        instance_create_depth(round((obj_hitbox_groundpound.x + x) / 2), round((obj_hitbox_groundpound.y + y) / 2), -10, obj_particle_slash_vertical)
+        instance_create_depth(x, y, -10, obj_particle_enemy_dead_3)
+        instance_create_depth(x, y, -10, obj_particle_enemy_dead_4)
         if drop
         {
-            instance_create_depth(x, y, -2, obj_item_gem_follow)
-            instance_create_depth(x, y, -2, obj_item_gem_follow)
-            instance_create_depth(x, y, -2, obj_item_gem_follow)
-            instance_create_depth(x, y, -2, obj_item_gem_follow)
-            instance_create_depth(x, y, -2, obj_item_gem_follow)
+            repeat (5)
+                instance_create_depth(x, y, -2, obj_item_gem_follow)
         }
+        if (global.sp < global.sp_max)
+            global.sp += 1
         with (obj_mick)
         {
             apex = 0
@@ -129,33 +117,42 @@ if (place_meeting(x, y, obj_hitbox_spin) || place_meeting(x, y, obj_hitbox_doubl
             djump = 0
             y -= 2
             vstate = 1
-            vspd = -48
+            vspd = (-jump_height)
             spin_time = 0
             dash_time = 0
         }
     }
-    if (place_meeting(x, y, obj_object_waterspout) || place_meeting(x, y, obj_object_collapse))
+    if (place_meeting(x, y, obj_hitbox_shoot) ? true : (place_meeting(x, y, obj_hitbox_hook_3) ? true : place_meeting(x, y, obj_hitbox_bomb_2)))
     {
-        instance_create_depth(x, y, -10, obj_particle_poof)
-        instance_create_depth(x, y, -10, obj_particle_batoncop_dead_5)
-        if (point_distance(x, y, obj_mick.x, obj_mick.y) < 1200)
-            audio_play_sound(snd_enemy_guncop_bullet_3, 1, false)
+        no_splat = 1
+        audio_play_sound(snd_mick_kill_4, 1, 0)
+        instance_create_depth(x, y, -10, obj_particle_burst)
+        instance_create_depth(x, y, -10, obj_particle_enemy_dead_5)
+        if (point_distance(x, y, obj_mick.x, obj_mick.y) < 2400)
+            audio_play_sound(snd_enemy_guncop_bullet_3, 1, 0)
+        if drop
+        {
+            repeat (5)
+                instance_create_depth(x, y, -2, obj_item_gem_follow)
+        }
+    }
+    if (place_meeting(x, y, obj_object_waterspout) ? true : place_meeting(x, y, obj_object_collapse))
+    {
+        instance_create_depth(x, y, -10, obj_particle_burst)
+        instance_create_depth(x, y, -10, obj_particle_enemy_dead_5)
+        if (point_distance(x, y, obj_mick.x, obj_mick.y) < 2400)
+            audio_play_sound(snd_enemy_guncop_bullet_3, 1, 0)
         no_splat = 1
     }
-	repeat (35)
-	{
-		instance_create_depth((x + irandom_range(-100, 100)), (y + irandom_range(-100, 100)), -9, obj_particle_paint_color)
-	}
-    if global.particles
+    repeat (36)
+        instance_create_depth((x + (irandom_range(-100, 100))), (y + (irandom_range(-100, 100))), -9, obj_particle_paint_color)
+    repeat (108)
     {
-		repeat (100)
-		{
-			instance_create_depth((x + irandom_range(-100, 100)), (y + irandom_range(-100, 100)), -9, obj_particle_paint_color)
-		}
-	}
-    script_execute(scr_screenshake)
+        if global.particles
+            instance_create_depth((x + (irandom_range(-100, 100))), (y + (irandom_range(-100, 100))), -9, obj_particle_paint_color)
+    }
+    scr_screenshake(10);
     instance_destroy()
-    ds_map_replace(obj_global.temp_data, key, 1)
 }
 if scared
 {
@@ -175,24 +172,24 @@ if instance_exists(obj_mick)
         if ((!scared) && (!(place_meeting(x, y, obj_wall_fake))))
         {
             global.pigseen = 1
-            script_execute(scr_stopsound_batoncop_voice)
+            scr_stopsound_batoncop_voice()
             scared_sound = irandom_range(0, 1)
-            if (scared_sound == snd_item_gem_9)
-                audio_play_sound(snd_enemy_batoncop_scared_voice_1, 1, false)
-            if (scared_sound == snd_mick_ui_wow_time)
-                audio_play_sound(snd_enemy_batoncop_scared_voice_2, 1, false)
+            if (scared_sound == 0)
+                audio_play_sound(snd_enemy_batoncop_scared_voice_1, 1, 0)
+            if (scared_sound == 1)
+                audio_play_sound(snd_enemy_batoncop_scared_voice_2, 1, 0)
             scared = 1
             scared_time = 30
             image_index = 0
         }
         if ((!scared) && place_meeting(x, y, obj_wall_fake) && global.infakewall)
         {
-            script_execute(scr_stopsound_batoncop_voice)
+            scr_stopsound_batoncop_voice()
             scared_sound = irandom_range(0, 1)
-            if (scared_sound == snd_item_gem_9)
-                audio_play_sound(snd_enemy_batoncop_scared_voice_1, 1, false)
-            if (scared_sound == snd_mick_ui_wow_time)
-                audio_play_sound(snd_enemy_batoncop_scared_voice_2, 1, false)
+            if (scared_sound == 0)
+                audio_play_sound(snd_enemy_batoncop_scared_voice_1, 1, 0)
+            if (scared_sound == 1)
+                audio_play_sound(snd_enemy_batoncop_scared_voice_2, 1, 0)
             scared = 1
             scared_time = 30
             image_index = 0
@@ -243,18 +240,18 @@ if attacking
 {
     sprite_index = spr_enemy_batoncop_attack
     if (image_index == 10)
-        hspd = (40 * (-image_xscale))
+        hspd = 40 * (-image_xscale)
     if (image_index > 20)
     {
         sprite_index = idle
         attacking = 0
     }
     if (image_index >= 10 && image_index <= 14)
-        instance_create_depth((x - (200 * image_xscale)), y, 0, obj_hitbox_batoncop_attack)
+        instance_create_depth((x - 200 * image_xscale), y, 0, obj_hitbox_batoncop_attack)
     if (image_index == 2)
-        audio_play_sound(snd_enemy_batoncop_attack_voice_1, 1, false)
+        audio_play_sound(snd_enemy_batoncop_attack_voice_1, 1, 0)
     if (image_index == 10)
-        audio_play_sound(snd_enemy_batoncop_baton_1, 1, false)
+        audio_play_sound(snd_enemy_batoncop_attack_1, 1, 0)
 }
 if (hspd > 0)
     hspd -= 1
@@ -332,7 +329,7 @@ if place_meeting((x - 2), y, obj_wall)
 }
 if ((!(place_meeting((x - 2), y, obj_wall))) && (!(place_meeting((x + 2), y, obj_wall))))
     x += hspd
-if (place_meeting(x, (y + 2), obj_wall) || place_meeting(x, (y + 2), obj_object_block_groundpound) || place_meeting(x, (y + 2), obj_object_block_uni))
+if (place_meeting(x, (y + 2), obj_wall) ? true : (place_meeting(x, (y + 2), obj_object_block_groundpound) ? true : place_meeting(x, (y + 2), obj_object_block_uni)))
     vstate = 0
 if ((!(place_meeting(x, (y + 2), obj_wall))) && (!(place_meeting(x, (y + 2), obj_object_block_groundpound))) && (!(place_meeting(x, (y + 2), obj_object_block_uni))))
     vstate = 1

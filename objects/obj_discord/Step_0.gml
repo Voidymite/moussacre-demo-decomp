@@ -20,5 +20,5 @@ time -= 1
 if (time == 0)
 {
     time = irandom_range(180, 300)
-    instance_create_depth((x + random_range(-150, 150)), (y + random_range(-75, 75)), -1, obj_discord_text)
+    instance_create_depth((x + (random_range(-150, 150))), (y + (random_range(-75, 75))), -5, obj_discord_text)
 }

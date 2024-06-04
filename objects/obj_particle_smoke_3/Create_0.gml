@@ -5,4 +5,3 @@ vspd = random_range(-10, -2)
 hspd = random_range(-6, 6)
 rspd = random_range(-2, 2)
 image_alpha = 1
-depth = 410

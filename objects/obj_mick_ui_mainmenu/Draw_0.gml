@@ -13,16 +13,16 @@ if (tab == 0)
     draw_sprite(spr_logo_mainmenu, 0, 0, 0)
 draw_set_font(font_small)
 draw_set_halign(fa_right)
-draw_text(3150, 1750, "^ 2024 Nicola Donnoli  v0.2")
+draw_text(3150, 1750, "© 2024 Nicola Donnoli  v0.1.1")
 draw_set_halign(fa_left)
-draw_text((x + 300), (((y + 1350) + 450) - 200), (((((((((("BEST TIME: " + string(global.rhour)) + ":") + string(global.minute0)) + string(global.rminute)) + ":") + string(global.second0)) + string(global.rsecond)) + ".") + string(global.rdsecond)) + string(global.rcsecond)))
-draw_text((x + 300), (((y + 1350) + 550) - 200), ("BEST SCORE: " + string(global.rscore)))
+draw_text((x + 300), (y + 1350 + 450 - 200), ("BEST TIME: " + string(global.rhour) + ":" + string(global.minute0) + string(global.rminute) + ":" + string(global.second0) + string(global.rsecond) + "." + string(global.rdsecond) + string(global.rcsecond)))
+draw_text((x + 300), (y + 1350 + 550 - 200), ("BEST SCORE: " + string(global.rscore)))
 if (tab > 0)
 {
     draw_sprite(spr_mick_ui_pause_4, 0, (x + scroll_x), (y - scroll_y))
-    draw_sprite(spr_mick_ui_pause_4, 0, ((x + scroll_x) - 3200), (y - scroll_y))
-    draw_sprite(spr_mick_ui_pause_4, 0, ((x + scroll_x) - 3200), ((y - scroll_y) + 1800))
-    draw_sprite(spr_mick_ui_pause_4, 0, (x + scroll_x), ((y - scroll_y) + 1800))
+    draw_sprite(spr_mick_ui_pause_4, 0, (x + scroll_x - 3200), (y - scroll_y))
+    draw_sprite(spr_mick_ui_pause_4, 0, (x + scroll_x - 3200), (y - scroll_y + 1800))
+    draw_sprite(spr_mick_ui_pause_4, 0, (x + scroll_x), (y - scroll_y + 1800))
 }
 if (tab == 0)
 {
@@ -46,17 +46,17 @@ if (row == 0)
 else
     draw_set_color(c_white)
 if (tab == 0)
-    draw_text(((x + 875) + 100), (((y + 1350) - 450) - 200), "PLAY")
+    draw_text((x + 875 + 100), (y + 1350 - 450 - 200), "PLAY")
 if (tab == 1)
-    draw_text((x + 1675), ((y + 900) - 600), "CONTROLS")
+    draw_text((x + 1675), (y + 900 - 600), "CONTROLS")
 if (tab == 3)
-    draw_sprite_ext(spr_mick_ui_audio, volume, (x + 1600), ((y + 900) - 450), 1, 1, rot, c_white, 1)
+    draw_sprite_ext(spr_mick_ui_audio, volume, (x + 1600), (y + 900 - 450), 1, 1, rot, c_white, 1)
 if (row == 1)
     draw_set_color(c_yellow)
 else
     draw_set_color(c_white)
 if (tab == 0)
-    draw_text(((x + 875) + 100), (((y + 1350) - 150) - 200), "SETTINGS")
+    draw_text((x + 875 + 100), (y + 1350 - 150 - 200), "SETTINGS")
 if (tab == 1)
 {
     if (rumble > 0)
@@ -64,37 +64,37 @@ if (tab == 1)
     else
         gamepad_set_vibration(0, 0, 0)
     if global.rumble
-        draw_text((x + 1675), ((y + 900) - 360), "RUMBLE ON")
+        draw_text((x + 1675), (y + 900 - 360), "RUMBLE ON")
     else
-        draw_text((x + 1675), ((y + 900) - 360), "RUMBLE OFF")
+        draw_text((x + 1675), (y + 900 - 360), "RUMBLE OFF")
 }
 if (tab == 3)
-    draw_text((x + 1675), ((y + 900) - 150), "INCREASE")
+    draw_text((x + 1675), (y + 900 - 150), "INCREASE")
 if (row == 2)
     draw_set_color(c_yellow)
 else
     draw_set_color(c_white)
 if (tab == 0)
-    draw_text(((x + 875) + 100), (((y + 1350) + 150) - 200), "QUIT")
+    draw_text((x + 875 + 100), (y + 1350 + 150 - 200), "QUIT")
 if (tab == 1)
-    draw_text((x + 1675), ((y + 900) - 120), "AUDIO")
+    draw_text((x + 1675), (y + 900 - 120), "AUDIO")
 if (tab == 3)
-    draw_text((x + 1675), ((y + 900) + 150), "DECREASE")
+    draw_text((x + 1675), (y + 900 + 150), "DECREASE")
 if (row == 3)
     draw_set_color(c_yellow)
 else
     draw_set_color(c_white)
 if (tab == 0)
-    draw_text((x + 1675), ((y + 900) + 450), "")
+    draw_text((x + 1675), (y + 900 + 450), "")
 if (tab == 1)
 {
     if (!window_get_fullscreen())
-        draw_text((x + 1675), ((y + 900) + 120), "WINDOWED")
+        draw_text((x + 1675), (y + 900 + 120), "WINDOWED")
     else
-        draw_text((x + 1675), ((y + 900) + 120), "FULLSCREEN")
+        draw_text((x + 1675), (y + 900 + 120), "FULLSCREEN")
 }
 if (tab == 3)
-    draw_text((x + 1675), ((y + 900) + 450), "GO BACK")
+    draw_text((x + 1675), (y + 900 + 450), "GO BACK")
 if (row == 4)
     draw_set_color(c_yellow)
 else
@@ -102,16 +102,16 @@ else
 if (tab == 1)
 {
     if global.particles
-        draw_text((x + 1675), ((y + 900) + 360), "PARTICLES HIGH")
+        draw_text((x + 1675), (y + 900 + 360), "PARTICLES HIGH")
     else
-        draw_text((x + 1675), ((y + 900) + 360), "PARTICLES LOW")
+        draw_text((x + 1675), (y + 900 + 360), "PARTICLES LOW")
 }
 if (row == 5)
     draw_set_color(c_yellow)
 else
     draw_set_color(c_white)
 if (tab == 1)
-    draw_text((x + 1675), ((y + 900) + 600), "GO BACK")
+    draw_text((x + 1675), (y + 900 + 600), "GO BACK")
 if (tab == 2)
 {
     with (obj_mick_ui_pause_select)

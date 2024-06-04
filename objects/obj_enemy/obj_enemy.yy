@@ -9,7 +9,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Unused",
-    "path": "folders/Objects/Level Structure/Enemies/Unused.yy",
+    "path": "folders/Objects/Enemies/Unused.yy",
   },
   "parentObjectId": null,
   "persistent": false,

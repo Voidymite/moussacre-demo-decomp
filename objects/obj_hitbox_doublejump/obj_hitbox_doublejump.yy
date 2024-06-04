@@ -10,8 +10,8 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "Hitbox",
-    "path": "folders/Objects/Mousetrap Stuff/Hitbox.yy",
+    "name": "Hitboxes",
+    "path": "folders/Objects/Hitboxes.yy",
   },
   "parentObjectId": null,
   "persistent": false,

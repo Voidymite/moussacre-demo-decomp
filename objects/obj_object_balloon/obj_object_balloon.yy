@@ -10,8 +10,8 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "Blocks",
-    "path": "folders/Objects/Level Structure/Blocks.yy",
+    "name": "Misc",
+    "path": "folders/Objects/Gameplay/Level Structure/Misc.yy",
   },
   "parentObjectId": null,
   "persistent": false,

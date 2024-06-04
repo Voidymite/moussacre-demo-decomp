@@ -1,33 +1,33 @@
 if (!gamepad_is_connected(0))
 {
-    var left_hold = keyboard_check(ord("A"))
-    var right_hold = keyboard_check(ord("D"))
-    var up_hold = keyboard_check(ord("W"))
-    var down_tap = keyboard_check_pressed(ord("S"))
-    var down_hold = keyboard_check(ord("S"))
-    var action1 = keyboard_check(ord("K"))
-    var action1_tap = keyboard_check_pressed(ord("K"))
-    var action1_release = keyboard_check_released(ord("K"))
-    var action2 = keyboard_check_pressed(ord("L"))
-    var action3 = keyboard_check_pressed(ord("º"))
-    var action4 = keyboard_check_pressed(ord("Þ"))
-    var action5 = keyboard_check(vk_lshift)
+    global.left_hold = keyboard_check(ord("A"))
+    global.right_hold = keyboard_check(ord("D"))
+    global.up_hold = keyboard_check(ord("W"))
+    global.down_tap = keyboard_check_pressed(ord("S"))
+    global.down_hold = keyboard_check(ord("S"))
+    global.action1 = keyboard_check(ord("K"))
+    global.action1_tap = keyboard_check_pressed(ord("K"))
+    global.action1_release = keyboard_check_released(ord("K"))
+    global.action2 = keyboard_check_pressed(ord("L"))
+    global.action3 = keyboard_check_pressed(ord("º"))
+    global.action5 = keyboard_check_pressed(ord("Þ"))
+    global.action5 = keyboard_check(vk_lshift)
 }
 else
 {
     gamepad_set_axis_deadzone(0, 0.24)
-    left_hold = (gamepad_button_check(0, gp_padl) || gamepad_axis_value(0, gp_axislh) < -0.3)
-    right_hold = (gamepad_button_check(0, gp_padr) || gamepad_axis_value(0, gp_axislh) > 0.3)
-    up_hold = (gamepad_button_check(0, gp_padu) || gamepad_axis_value(0, gp_axislv) < -0.3)
-    down_tap = (gamepad_button_check_pressed(0, gp_padd) || gamepad_axis_value(0, gp_axislv) > 0.5)
-    down_hold = (gamepad_button_check(0, gp_padd) || gamepad_axis_value(0, gp_axislv) > 0.3)
-    action1 = gamepad_button_check(0, gp_face1)
-    action1_tap = gamepad_button_check_pressed(0, gp_face1)
-    action1_release = gamepad_button_check_released(0, gp_face1)
-    action2 = gamepad_button_check_pressed(0, gp_face3)
-    action3 = gamepad_button_check_pressed(0, gp_face4)
-    action4 = gamepad_button_check_pressed(0, gp_face2)
-    action5 = (gamepad_button_check(0, gp_shoulderrb) || gamepad_button_check(0, gp_shoulderlb))
+    global.left_hold = (gamepad_button_check(0, gp_padl) ? true : gamepad_axis_value(0, gp_axislh) < -0.3)
+    global.right_hold = (gamepad_button_check(0, gp_padr) ? true : gamepad_axis_value(0, gp_axislh) > 0.3)
+    global.up_hold = (gamepad_button_check(0, gp_padu) ? true : gamepad_axis_value(0, gp_axislv) < -0.3)
+    global.down_tap = (gamepad_button_check_pressed(0, gp_padd) ? true : gamepad_axis_value(0, gp_axislv) > 0.5)
+    global.down_hold = (gamepad_button_check(0, gp_padd) ? true : gamepad_axis_value(0, gp_axislv) > 0.3)
+    global.action1 = gamepad_button_check(0, gp_face1)
+    global.action1_tap = gamepad_button_check_pressed(0, gp_face1)
+    global.action1_release = gamepad_button_check_released(0, gp_face1)
+    global.action2 = gamepad_button_check_pressed(0, gp_face3)
+    global.action3 = gamepad_button_check_pressed(0, gp_face4)
+    global.action5 = gamepad_button_check_pressed(0, gp_face2)
+    global.action5 = (gamepad_button_check(0, gp_shoulderrb) ? true : gamepad_button_check(0, gp_shoulderlb))
 }
 if place_meeting((x + global.hspd), y, obj_wall)
 {
@@ -62,11 +62,11 @@ if place_meeting(x, (y + 2), obj_wall)
     stalled = 0
     djump = 0
     djump_time = 4
-    if (action1_release || (!action1))
+    if (global.action1_release ? true : (!global.action1))
         jump_used = 0
     if (!gamepad_is_connected(0))
         pound_used = 0
-    if (astate == 0 || astate == 3 || astate == 4)
+    if (astate == 0 ? true : (astate == 3 ? true : astate == 4))
     {
         sprite_index = spr_test_idle
         astate = 0
@@ -80,7 +80,7 @@ if vstate
     vspd += 1
     if (vspd >= 24)
         vspd = 24
-    if (down_tap && (!pound_used))
+    if (global.down_tap && (!pound_used))
     {
         astate = 3
         vspd = 24
@@ -97,7 +97,7 @@ if vstate
         if (astate == 0)
             sprite_index = spr_test_jump_down
     }
-    if ((!action1) && (!apex))
+    if ((!global.action1) && (!apex))
     {
         vspd = 0
         apex = 1
@@ -110,7 +110,7 @@ if vstate
         wjump_time -= 1
     if (wkick_time > 0)
         wkick_time -= 1
-    if (action1_tap && astate != 1 && (!djump) && djump_time == 0)
+    if (global.action1_tap && astate != 1 && (!djump) && djump_time == 0)
     {
         if (place_meeting((x + 2), y, obj_wall) && dir == -1)
         {
@@ -143,7 +143,7 @@ if vstate
             vspd = -18
         }
     }
-    if (place_meeting((x + 2), y, obj_wall) && (!(place_meeting((x + 2), y, obj_wall_nowalljump))) && dir == 1 && action1_tap && astate != 1 && wjump_time == 0)
+    if (place_meeting((x + 2), y, obj_wall) && (!(place_meeting((x + 2), y, obj_wall_nowalljump))) && dir == 1 && global.action1_tap && astate != 1 && wjump_time == 0)
     {
         apex = 0
         stalled = 0
@@ -159,7 +159,7 @@ if vstate
         if running
             global.hspd = -24
     }
-    if (place_meeting((x - 2), y, obj_wall) && (!(place_meeting((x - 2), y, obj_wall_nowalljump))) && dir == -1 && action1_tap && astate != 1 && wjump_time == 0)
+    if (place_meeting((x - 2), y, obj_wall) && (!(place_meeting((x - 2), y, obj_wall_nowalljump))) && dir == -1 && global.action1_tap && astate != 1 && wjump_time == 0)
     {
         apex = 0
         stalled = 0
@@ -179,7 +179,7 @@ if vstate
 else
 {
     vspd = 0
-    if (action1 && astate != 1)
+    if (global.action1 && astate != 1)
     {
         if (!jump_used)
         {
@@ -198,7 +198,7 @@ else
         }
     }
 }
-if action5
+if global.action5
 {
     running = 1
     if (dash_time >= 8)
@@ -214,7 +214,7 @@ if (dash_time < 8 && (!running))
     if (global.hspd <= -8)
         global.hspd += 1
 }
-else if (dash_time >= 8 || running)
+else if (dash_time >= 8 ? true : running)
 {
     if (astate == 2)
         sprite_index = spr_test_dash
@@ -223,19 +223,19 @@ else if (dash_time >= 8 || running)
     if (global.hspd <= -24)
         global.hspd = -24
 }
-if (left_hold || right_hold)
+if (global.left_hold ? true : global.right_hold)
     hstate = 1
 else
     hstate = 0
 x += global.hspd
-if ((!left_hold) && (!right_hold))
+if ((!global.left_hold) && (!global.right_hold))
 {
     if (global.hspd < 0)
         global.hspd += 1
     if (global.hspd > 0)
         global.hspd -= 1
 }
-if (left_hold && dash_time < 8)
+if (global.left_hold && dash_time < 8)
 {
     dir = -1
     if (wkick_time == 0)
@@ -248,7 +248,7 @@ if (left_hold && dash_time < 8)
             global.hspd = -24
     }
 }
-if (right_hold && dash_time < 8)
+if (global.right_hold && dash_time < 8)
 {
     dir = 1
     if (wkick_time == 0)
@@ -261,9 +261,9 @@ if (right_hold && dash_time < 8)
             global.hspd = 24
     }
 }
-if (left_hold && right_hold)
+if (global.left_hold && global.right_hold)
     dir = 1
-if (action2 && astate != 1)
+if (global.action2 && astate != 1)
 {
     astate = 1
     spin_time = 12
@@ -282,12 +282,12 @@ if (spin_time > 0)
         astate = 0
     }
 }
-if (action4 && astate != 1 && astate != 2 && (!dashed))
+if (global.action5 && astate != 1 && astate != 2 && (!dashed))
 {
     dash_time = 20
     astate = 2
     dashed = 1
-    global.hspd = (20 * dir)
+    global.hspd = 20 * dir
 }
 if (dash_time > 0)
 {

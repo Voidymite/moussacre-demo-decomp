@@ -16,8 +16,8 @@
     "path": "folders/Tile Sets.yy",
   },
   "spriteId": {
-    "name": "ts_grassblocks_sprite",
-    "path": "sprites/ts_grassblocks_sprite/ts_grassblocks_sprite.yy",
+    "name": "tilespr_ts_grassblocks",
+    "path": "sprites/tilespr_ts_grassblocks/tilespr_ts_grassblocks.yy",
   },
   "spriteNoExport": true,
   "textureGroupId": {
@@ -131,7 +131,7 @@
     "SerialiseFrameCount": 1,
   },
   "tileAnimationFrames": [],
-  "tileAnimationSpeed": 15.0,
+  "tileAnimationSpeed": 15.00015,
   "tileHeight": 64,
   "tilehsep": 4,
   "tilevsep": 4,
