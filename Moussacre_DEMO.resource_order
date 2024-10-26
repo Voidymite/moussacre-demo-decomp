@@ -1,12 +1,12 @@
 {
   "FolderOrderSettings": [
-    {"name":"Ambience","order":578,"path":"folders/Sounds/Ambience.yy",},
-    {"name":"Sounds","order":579,"path":"folders/Sounds/Sounds.yy",},
-    {"name":"Music","order":580,"path":"folders/Sounds/Music.yy",},
+    {"name":"Enemies","order":253,"path":"folders/Objects/Enemies.yy",},
     {"name":"Levels","order":291,"path":"folders/Rooms/Levels.yy",},
     {"name":"Forest","order":1,"path":"folders/Rooms/Levels/Forest.yy",},
     {"name":"Test Rooms","order":2,"path":"folders/Rooms/Levels/Test Rooms.yy",},
-    {"name":"Enemies","order":253,"path":"folders/Objects/Enemies.yy",},
+    {"name":"Ambience","order":578,"path":"folders/Sounds/Ambience.yy",},
+    {"name":"Music","order":580,"path":"folders/Sounds/Music.yy",},
+    {"name":"Sounds","order":579,"path":"folders/Sounds/Sounds.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"obj_afterimage_saw","order":1,"path":"objects/obj_afterimage_saw/obj_afterimage_saw.yy",},
@@ -1150,6 +1150,6 @@
     {"name":"ts_os","order":1148,"path":"tilesets/ts_os/ts_os.yy",},
     {"name":"ts_sea_sprite","order":1149,"path":"sprites/ts_sea_sprite/ts_sea_sprite.yy",},
     {"name":"ts_sea","order":1150,"path":"tilesets/ts_sea/ts_sea.yy",},
-    {"name":"readme","order":1151,"path":"notes/readme/readme.yy",},
+    {"name":"Read me or I'll fart my pants","order":1151,"path":"notes/Read me or I'll fart my pants/Read me or I'll fart my pants.yy",},
   ],
 }
