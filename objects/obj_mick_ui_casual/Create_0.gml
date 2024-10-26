@@ -1,0 +1,11 @@
+time = 60;
+flash = 0;
+row = 0;
+tapped = 0;
+map_string = "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz.,:;'\"!?0123456789()%&+-*©";
+font = font_add_sprite_ext(spr_mick_ui_text, map_string, true, 5);
+move = 0;
+shake = 0;
+instance_create_depth(100, -100, -2000, obj_mick_ui_pause_select);
+instance_create_depth(100, -100, -2000, obj_mick_ui_pause_select_mick);
+audio_group_stop_all(snd_background_city_1);

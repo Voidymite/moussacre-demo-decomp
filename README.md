@@ -1,7 +1,14 @@
-# Moussacre Demo Decompilation
-This is a decompilation of the Moussacre Demo. As of June 6th 2024 its version is 2.0.0.0.
-*The decomp was **NOT** made with intent to get Moussacre for free or to poke fun at Nick Donnoli. This is a DEMO decomp, not a full-game decomp. This was also published with permission.*
-If you want to give credit to the *proper* source material, support Nick Donnoli by playing Moussacre's demo on Steam:
-https://store.steampowered.com/app/2668740/Moussacre/
-Or play Oblivion Eagle:
-https://store.steampowered.com/app/2256950/Oblivion_Eagle/
+# Moussacre Demo Decomp
+
+This is a decompilation of the Moussacre Demo by Nick Donnoli.
+
+# Setup
+
+Note: I.D.E (Interactive Development Environment) usually should not matter, but newer GameMaker versions will require you to convert the project which I personally do not trust. In the case you are not willing to take any risks, use the closest you can to v2024.6. Use the runtime v2024.6.1.208 aswell, no buts.
+
+- There are no extra steps required (like some sort of piracy check), as this is just a demo.
+
+![The runtime and IDE I use](image.png)
+
+
+https://discord.gg/gxmBpKPQhv

@@ -1,0 +1,9 @@
+life = 60;
+no_splat = 0;
+atk = irandom_range(180, 240);
+point_x = irandom_range(-250, 250);
+point_y = irandom_range(-250, 250);
+size = 0.1;
+image_xscale = size;
+image_yscale = size;
+dir = 1;

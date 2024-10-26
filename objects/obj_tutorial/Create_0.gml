@@ -1,2 +1,2 @@
-depth = 20
-image_speed = 2
+depth = 20;
+image_speed = 2;

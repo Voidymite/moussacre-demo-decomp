@@ -1,6 +1,7 @@
-x += (spd * (-dir))
-y -= spd
-spd += 1
-time -= 1
+x += (spd * -dir);
+y -= spd;
+spd++;
+time--;
+
 if (time == 0)
-    instance_destroy()
+    instance_destroy();

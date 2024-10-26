@@ -1,0 +1,11 @@
+image_speed = 0;
+time = 60;
+x_shake = 0;
+y_shake = 0;
+pos = 500;
+size = 7.5;
+skip = 0;
+skip_time = 0;
+map_string = "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz.,:;'\"!?0123456789()%&+-*©";
+font = font_add_sprite_ext(spr_mick_ui_text, map_string, true, 5);
+audio_play_sound(snd_song_hereitcomes, 1, 0);

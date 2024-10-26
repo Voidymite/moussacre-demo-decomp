@@ -16,8 +16,8 @@
     "path": "folders/Tile Sets.yy",
   },
   "spriteId": {
-    "name": "tilespr_ts_kitchen",
-    "path": "sprites/tilespr_ts_kitchen/tilespr_ts_kitchen.yy",
+    "name": "ts_kitchen_sprite",
+    "path": "sprites/ts_kitchen_sprite/ts_kitchen_sprite.yy",
   },
   "spriteNoExport": true,
   "textureGroupId": {
@@ -431,7 +431,7 @@
     "SerialiseFrameCount": 1,
   },
   "tileAnimationFrames": [],
-  "tileAnimationSpeed": 15.00015,
+  "tileAnimationSpeed": 15.0,
   "tileHeight": 128,
   "tilehsep": 4,
   "tilevsep": 4,

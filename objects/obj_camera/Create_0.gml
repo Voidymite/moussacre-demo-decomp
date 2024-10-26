@@ -1,4 +1,5 @@
-lean = 0
-lean2 = 0
-shake_time = 0
-shake_amount = 0
+lean = 0;
+lean2 = 0;
+normal_cam = 1;
+shake_time = 0;
+shake_amount = 0;

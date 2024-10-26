@@ -1,0 +1,9 @@
+map_string = "0123456789+-";
+font = font_add_sprite_ext(spr_mick_ui_menu_addsub, map_string, true, 5);
+color = c_white;
+num = 1;
+time = 60;
+x_pos = 600;
+y_pos = 400;
+x_mov = random_range(-5, 5);
+y_mov = random_range(5, 10);

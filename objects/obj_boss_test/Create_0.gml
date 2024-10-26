@@ -1,0 +1,13 @@
+image_xscale = 3;
+image_yscale = 3;
+state = 0;
+time = 30;
+int_time = 0;
+max_time = 30;
+move = 0;
+moves = 3;
+taunt = 0;
+hp = 72;
+inv = 0;
+vspd = 0;
+hspd = 0;

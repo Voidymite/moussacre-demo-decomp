@@ -1,2 +1,2 @@
-x = obj_mick.x
-y = obj_mick.y + 64
+x = obj_mick.x;
+y = obj_mick.y + 64;

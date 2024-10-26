@@ -1,2 +1,2 @@
-time = 60
-frame = 1
+time = 60;
+frame = 1;

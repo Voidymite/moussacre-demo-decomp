@@ -1,3 +1,4 @@
-time -= 1
+time--;
+
 if (time == 0)
-    instance_destroy()
+    instance_destroy();

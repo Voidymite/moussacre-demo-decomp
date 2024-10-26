@@ -9,8 +9,8 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "Misc",
-    "path": "folders/Objects/Gameplay/Level Structure/Misc.yy",
+    "name": "Objects",
+    "path": "folders/Objects.yy",
   },
   "parentObjectId": null,
   "persistent": false,
@@ -29,8 +29,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "spr_background_generator",
-    "path": "sprites/spr_background_generator/spr_background_generator.yy",
+    "name": "spr_background_forest_generator",
+    "path": "sprites/spr_background_forest_generator/spr_background_forest_generator.yy",
   },
   "spriteMaskId": null,
   "visible": true,

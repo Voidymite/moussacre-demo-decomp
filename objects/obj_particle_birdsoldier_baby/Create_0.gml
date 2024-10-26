@@ -1,3 +1,3 @@
-dir = 1
-spd = 1
-time = 300
+dir = 1;
+spd = 1;
+time = 300;

@@ -1,4 +1,11 @@
-depth = -9
-instance_create_depth(-4000, -4000, 0, obj_wall_nowalljump)
-instance_create_depth(-4000, (room_height + 4000), 0, obj_wall_nowalljump)
-instance_create_depth((room_width - 100), -4000, 0, obj_wall_nowalljump)
+depth = -9;
+instance_create_depth(-4000, -4000, 0, obj_wall_nowalljump);
+instance_create_depth(-4000, room_height + 4000, 0, obj_wall_nowalljump);
+instance_create_depth(room_width - 20, -4000, 0, obj_wall_nowalljump);
+flicker_time = 10;
+p1x = 1600;
+p1y = 300;
+p2x = 2050;
+p2y = 900;
+p3x = 2600;
+p3y = 1400;

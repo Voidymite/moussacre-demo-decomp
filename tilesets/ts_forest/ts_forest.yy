@@ -16,8 +16,8 @@
     "path": "folders/Tile Sets.yy",
   },
   "spriteId": {
-    "name": "tilespr_ts_forest",
-    "path": "sprites/tilespr_ts_forest/tilespr_ts_forest.yy",
+    "name": "ts_forest_sprite",
+    "path": "sprites/ts_forest_sprite/ts_forest_sprite.yy",
   },
   "spriteNoExport": true,
   "textureGroupId": {
@@ -431,7 +431,7 @@
     "SerialiseFrameCount": 1,
   },
   "tileAnimationFrames": [],
-  "tileAnimationSpeed": 15.00015,
+  "tileAnimationSpeed": 15.0,
   "tileHeight": 128,
   "tilehsep": 4,
   "tilevsep": 4,

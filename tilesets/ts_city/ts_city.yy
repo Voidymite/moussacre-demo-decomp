@@ -16,8 +16,8 @@
     "path": "folders/Tile Sets.yy",
   },
   "spriteId": {
-    "name": "tilespr_ts_city",
-    "path": "sprites/tilespr_ts_city/tilespr_ts_city.yy",
+    "name": "ts_city_sprite",
+    "path": "sprites/ts_city_sprite/ts_city_sprite.yy",
   },
   "spriteNoExport": true,
   "textureGroupId": {
@@ -431,7 +431,7 @@
     "SerialiseFrameCount": 1,
   },
   "tileAnimationFrames": [],
-  "tileAnimationSpeed": 15.00015,
+  "tileAnimationSpeed": 15.0,
   "tileHeight": 128,
   "tilehsep": 4,
   "tilevsep": 4,

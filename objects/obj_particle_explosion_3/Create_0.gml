@@ -1,7 +1,9 @@
-size = random_range(0.5, 2)
-image_xscale = size
-image_yscale = size
-vspd = random_range(-2, 2)
-hspd = random_range(-2, 2)
-rspd = random_range(-16, 16)
-image_alpha = 1.2
+size = random_range(0.5, 2);
+image_xscale = size;
+image_yscale = size;
+vspd = random_range(-2, 2);
+hspd = random_range(-2, 2);
+rspd = random_range(-16, 16);
+image_alpha = 1.2;
+image_speed = 0;
+image_index = choose(0, 1);

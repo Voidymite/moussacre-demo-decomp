@@ -1,3 +1,3 @@
-x_pos = x
-y_pos = y
-collected = 0
+x_pos = x;
+y_pos = y;
+collected = 0;

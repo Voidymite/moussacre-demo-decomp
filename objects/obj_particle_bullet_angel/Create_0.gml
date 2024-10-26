@@ -1,2 +1,2 @@
-rotate_dir = choose(-1, 1)
-image_alpha = 1
+rotate_dir = choose(-1, 1);
+image_alpha = 1;

@@ -1,0 +1,10 @@
+image_speed = 0;
+image_index = 1;
+size = 0.1;
+image_xscale = size;
+image_yscale = size;
+breaking = 0;
+point_x = obj_mick.x;
+point_y = obj_mick.y;
+rspd = irandom_range(3, 10);
+time = 1;

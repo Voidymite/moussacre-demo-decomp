@@ -1,45 +1,73 @@
-gamepad_set_vibration(0, 0.015, 0.015)
+gamepad_set_vibration(0, 0.015, 0.015);
+
 if (!fade)
 {
-    image_xscale += 0.04
-    image_yscale += 0.04
+    image_xscale += 0.04;
+    image_yscale += 0.04;
 }
 else
 {
-    image_alpha -= 0.02
+    image_alpha -= 0.02;
+    
     if (image_alpha <= 0)
     {
-        instance_destroy()
-        if global.rumble
-            gamepad_set_vibration(0, 0, 0)
+        instance_destroy();
+        
+        if (global.rumble)
+            gamepad_set_vibration(0, 0, 0);
     }
 }
-if (image_xscale == 2 && (!fade))
+
+if (image_xscale == 2 && !fade)
 {
-    fade = 1
-    if (place_meeting(x, y, obj_wall) ? true : place_meeting(x, y, obj_wall_shield))
-        instance_create_depth((x + (irandom_range(-400, 400))), (y + (irandom_range(-400, 400))), (depth - 1), obj_hitbox_walt_attack_2)
+    fade = 1;
+    
+    if (place_meeting(x, y, obj_wall) || place_meeting(x, y, obj_wall_shield))
+        instance_create_depth(x + irandom_range(-400, 400), y + irandom_range(-400, 400), depth - 1, obj_hitbox_walt_attack_2);
 }
-image_angle += rot_spd
+
+image_angle += rot_spd;
+
 if (global.hp > 0)
 {
-    x += ((target_x - x) * 0.03)
-    y += ((target_y - y) * 0.03)
+    x += ((target_x - x) * 0.03);
+    y += ((target_y - y) * 0.03);
 }
+
 if (place_meeting(x, y, obj_mick) && fade)
 {
     with (obj_mick)
     {
-        if (hurt_timer == 0 && (!(place_meeting(x, y, obj_wall_shield))))
+        if (hurt_timer == 0 && !place_meeting(x, y, obj_wall_shield) && parry == 0)
         {
-            if (dash_time <= 8)
+            if (dash_time <= 2)
             {
-                instance_create_depth(x, y, -10, obj_particle_burst)
-                hurt_timer = 120
-                global.hp -= 1
+                instance_create_depth(x, y, -10, obj_particle_burst);
+                hurt_timer = 120;
+                global.hp--;
+                global.score -= 500;
+                
+                if (global.numbers)
+                {
+                    if (global.difficulty != 2)
+                        instance_create_depth(-100, -100, -10001, obj_particle_addsub).num = -500;
+                    
+                    instance_create_depth(-100, -100, -10001, obj_particle_addsub_2).num = -1;
+                }
             }
-            else if global.rumble
-                gamepad_set_vibration(0, 0.025, 0.025)
+            else if (global.rumble)
+            {
+                gamepad_set_vibration(0, 0.025, 0.025);
+            }
         }
     }
+    
+    if (obj_mick.parry > 0 && can_parry == 0)
+    {
+        instance_create_depth(obj_mick.x, obj_mick.y, -3, obj_hitbox_counter);
+        can_parry = 5;
+    }
 }
+
+if (can_parry > 0)
+    can_parry--;
